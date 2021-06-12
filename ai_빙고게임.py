@@ -1,4 +1,5 @@
 import random#random 모듈을 들고옵니다.
+import time#time모듈을 들고옵니다.
 player=[]#player의 빙고판
 computer=[]#computer의 빙고판
 turn=1#차례
@@ -15,7 +16,7 @@ def show():#현재 빙고판의상태를 출력하는 함수
         if i%5==4:#5개 출력하고 줄바꿈
             print()
             
-    print("\n\nseojun broad:")
+    print("\n\ncomputer broad:")
     for i in range(25):#이밑은 위코드 기능과 동일
         if computer[i]==0:
             print("%2s "%('X'),end="")
@@ -168,8 +169,9 @@ while 1:
                 player[player.index(a)]=0
                 computer[computer.index(a)]=0
                 break
-    else:
+    else:#턴이 짝수일때는 computer의 차례이다
         print("\n빅스비의 턴입니다.")
+        time.sleep(2)#시간 2초지연
         print("빅스비: %d"%( computer[AI(computer)]))
         player[player.index(computer[AI(computer)])]=0
         computer[AI(computer)]=0
